@@ -1,4 +1,5 @@
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
+import 'package:fitness_mobile_flutter/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,23 +37,26 @@ class RegisterScreen extends StatelessWidget {
             const SizedBox(height: 40),
 
             _buildFieldGroup(
-              label: 'Nome completo: ',
+              label: 'NOME COMPLETO: ',
               hint: 'Tayná Vicente Silva',
             ),
             const SizedBox(height: 20),
 
-            _buildFieldGroup(label: 'E-mail: ', hint: 'seu@email.com'),
+            _buildFieldGroup(label: 'USERNAME: ', hint: '@tayna_vicente01'),
+            const SizedBox(height: 20),
+
+            _buildFieldGroup(label: 'E-MAIL: ', hint: 'seu@email.com'),
             const SizedBox(height: 20),
 
             _buildFieldGroup(
-              label: 'Senha: ',
+              label: 'SENHA: ',
               hint: '••••••',
               isPassword: true,
             ),
             const SizedBox(height: 20),
 
             _buildFieldGroup(
-              label: 'Confirme sua senha: ',
+              label: 'CONFIRME SUA SENHA: ',
               hint: '••••••',
               isPassword: true,
             ),
@@ -62,7 +66,9 @@ class RegisterScreen extends StatelessWidget {
             SizedBox(
               height: 55,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.login);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.black,
@@ -71,7 +77,7 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'CADASTRAR AGORA',
+                  'CADASTRAR',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -79,6 +85,7 @@ class RegisterScreen extends StatelessWidget {
 
             const SizedBox(height: 30),
 
+            // DIVISOR
             Row(
               children: [
                 const Expanded(
@@ -103,6 +110,7 @@ class RegisterScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
+            // VOLTAR PARA LOGIN
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -139,9 +147,11 @@ class RegisterScreen extends StatelessWidget {
         Text(
           label,
           style: GoogleFonts.barlow(
-            color: AppColors.textPrimary,
+            // Corrigido para ficar igual ao Login (suave com withValues)
+            color: AppColors.textPrimary.withValues(alpha: 0.7),
             fontSize: 12,
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1.1,
           ),
         ),
         const SizedBox(height: 8),

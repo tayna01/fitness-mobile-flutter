@@ -38,11 +38,11 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 40),
 
             Text(
-              'E-mail: ',
+              'E-MAIL OU USERNAME: ',
               style: GoogleFonts.barlow(
-                color: AppColors.textPrimary,
+                color: AppColors.textPrimary.withValues(alpha: 0.7),
                 fontSize: 12,
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 8),
@@ -50,13 +50,17 @@ class LoginScreen extends StatelessWidget {
             TextField(
               style: const TextStyle(color: AppColors.textPrimary),
               decoration: InputDecoration(
-                hintText: 'seu@email.com',
+                hintText: 'Digite seu e-mail ou usuário',
                 hintStyle: const TextStyle(
                   fontSize: 14,
                   color: AppColors.textSecondary,
                 ),
                 filled: true,
                 fillColor: AppColors.surface,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 18,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none,
@@ -64,14 +68,15 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 15),
+            const SizedBox(height: 20),
 
             Text(
-              'Senha: ',
+              'SENHA: ',
               style: GoogleFonts.barlow(
-                color: AppColors.textPrimary,
+                color: AppColors.textPrimary.withValues(alpha: 0.7),
                 fontSize: 12,
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.1,
               ),
             ),
             const SizedBox(height: 8),
@@ -87,6 +92,10 @@ class LoginScreen extends StatelessWidget {
                 ),
                 filled: true,
                 fillColor: AppColors.surface,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 18,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none,
@@ -99,7 +108,9 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               height: 55,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.dashboard);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.black,
