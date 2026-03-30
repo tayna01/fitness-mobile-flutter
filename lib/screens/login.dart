@@ -1,5 +1,5 @@
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
-import 'package:fitness_mobile_flutter/screens/register.dart';
+import 'package:fitness_mobile_flutter/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -149,12 +149,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RegisterScreen(),
-                      ),
-                    );
+                    Navigator.pushNamed(context, AppRoutes.register);
                   },
                   child: const Text(
                     'Criar conta',
