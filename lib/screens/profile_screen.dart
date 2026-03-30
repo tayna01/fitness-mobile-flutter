@@ -50,19 +50,6 @@ class ProfileScreen extends StatelessWidget {
                       color: AppColors.primary,
                     ),
                   ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: CircleAvatar(
-                      radius: 18,
-                      backgroundColor: AppColors.primary,
-                      child: const Icon(
-                        Icons.edit,
-                        size: 18,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
