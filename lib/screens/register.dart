@@ -1,5 +1,4 @@
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
-import 'package:fitness_mobile_flutter/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -66,9 +65,7 @@ class RegisterScreen extends StatelessWidget {
             SizedBox(
               height: 55,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, AppRoutes.login);
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.black,
@@ -85,7 +82,6 @@ class RegisterScreen extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            // DIVISOR
             Row(
               children: [
                 const Expanded(
@@ -110,7 +106,6 @@ class RegisterScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // VOLTAR PARA LOGIN
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
