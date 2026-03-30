@@ -3,4 +3,5 @@ class AppRoutes {
   static const register = '/cadastro';
   static const dashboard = '/dashboard';
   static const profile = '/perfil';
+  static const forgotPassword = '/recuperar-senha';
 }

@@ -1,4 +1,5 @@
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
+import 'package:fitness_mobile_flutter/widgets/card_field_group_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -35,26 +36,22 @@ class RegisterScreen extends StatelessWidget {
 
             const SizedBox(height: 40),
 
-            _buildFieldGroup(
+            buildFieldGroup(
               label: 'NOME COMPLETO: ',
               hint: 'Tayná Vicente Silva',
             ),
             const SizedBox(height: 20),
 
-            _buildFieldGroup(label: 'USERNAME: ', hint: '@tayna_vicente01'),
+            buildFieldGroup(label: 'USERNAME: ', hint: '@tayna_vicente01'),
             const SizedBox(height: 20),
 
-            _buildFieldGroup(label: 'E-MAIL: ', hint: 'seu@email.com'),
+            buildFieldGroup(label: 'E-MAIL: ', hint: 'seu@email.com'),
             const SizedBox(height: 20),
 
-            _buildFieldGroup(
-              label: 'SENHA: ',
-              hint: '••••••',
-              isPassword: true,
-            ),
+            buildFieldGroup(label: 'SENHA: ', hint: '••••••', isPassword: true),
             const SizedBox(height: 20),
 
-            _buildFieldGroup(
+            buildFieldGroup(
               label: 'CONFIRME SUA SENHA: ',
               hint: '••••••',
               isPassword: true,
@@ -128,50 +125,6 @@ class RegisterScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildFieldGroup({
-    required String label,
-    required String hint,
-    bool isPassword = false,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: GoogleFonts.barlow(
-            // Corrigido para ficar igual ao Login (suave com withValues)
-            color: AppColors.textPrimary.withValues(alpha: 0.7),
-            fontSize: 12,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.1,
-          ),
-        ),
-        const SizedBox(height: 8),
-        TextField(
-          obscureText: isPassword,
-          style: const TextStyle(color: AppColors.textPrimary),
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: const TextStyle(
-              fontSize: 14,
-              color: AppColors.textSecondary,
-            ),
-            filled: true,
-            fillColor: AppColors.surface,
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 18,
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide.none,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
