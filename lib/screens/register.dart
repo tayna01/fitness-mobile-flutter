@@ -1,23 +1,21 @@
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
-import 'package:fitness_mobile_flutter/screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 60.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'FIT',
+              'CRIE SUA',
               style: GoogleFonts.barlowCondensed(
                 color: AppColors.textPrimary,
                 fontSize: 60,
@@ -26,7 +24,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Text(
-              'TRAINER',
+              'CONTA',
               style: GoogleFonts.barlowCondensed(
                 color: AppColors.primary,
                 fontSize: 60,
@@ -37,64 +35,29 @@ class LoginScreen extends StatelessWidget {
 
             const SizedBox(height: 40),
 
-            Text(
-              'E-mail: ',
-              style: GoogleFonts.barlow(
-                color: AppColors.textPrimary,
-                fontSize: 12,
-                fontWeight: FontWeight.normal,
-              ),
+            _buildFieldGroup(
+              label: 'Nome completo: ',
+              hint: 'Tayná Vicente Silva',
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 20),
 
-            TextField(
-              style: const TextStyle(color: AppColors.textPrimary),
-              decoration: InputDecoration(
-                hintText: 'seu@email.com',
-                hintStyle: const TextStyle(
-                  fontSize: 14,
-                  color: AppColors.textSecondary,
-                ),
-                filled: true,
-                fillColor: AppColors.surface,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide.none,
-                ),
-              ),
+            _buildFieldGroup(label: 'E-mail: ', hint: 'seu@email.com'),
+            const SizedBox(height: 20),
+
+            _buildFieldGroup(
+              label: 'Senha: ',
+              hint: '••••••',
+              isPassword: true,
+            ),
+            const SizedBox(height: 20),
+
+            _buildFieldGroup(
+              label: 'Confirme sua senha: ',
+              hint: '••••••',
+              isPassword: true,
             ),
 
-            const SizedBox(height: 15),
-
-            Text(
-              'Senha: ',
-              style: GoogleFonts.barlow(
-                color: AppColors.textPrimary,
-                fontSize: 12,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            const SizedBox(height: 8),
-
-            TextField(
-              obscureText: true,
-              style: const TextStyle(color: AppColors.textPrimary),
-              decoration: InputDecoration(
-                hintText: '••••••',
-                hintStyle: const TextStyle(
-                  fontSize: 14,
-                  color: AppColors.textSecondary,
-                ),
-                filled: true,
-                fillColor: AppColors.surface,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide.none,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 30),
+            const SizedBox(height: 35),
 
             SizedBox(
               height: 55,
@@ -108,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'ENTRAR',
+                  'CADASTRAR AGORA',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -144,20 +107,13 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Não tem conta?',
+                  'Já tem conta?',
                   style: TextStyle(color: AppColors.textSecondary),
                 ),
                 TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RegisterScreen(),
-                      ),
-                    );
-                  },
+                  onPressed: () => Navigator.pop(context),
                   child: const Text(
-                    'Criar conta',
+                    'Entrar',
                     style: TextStyle(
                       color: AppColors.primary,
                       fontWeight: FontWeight.bold,
@@ -169,6 +125,48 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildFieldGroup({
+    required String label,
+    required String hint,
+    bool isPassword = false,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: GoogleFonts.barlow(
+            color: AppColors.textPrimary,
+            fontSize: 12,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
+        const SizedBox(height: 8),
+        TextField(
+          obscureText: isPassword,
+          style: const TextStyle(color: AppColors.textPrimary),
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: const TextStyle(
+              fontSize: 14,
+              color: AppColors.textSecondary,
+            ),
+            filled: true,
+            fillColor: AppColors.surface,
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 18,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide.none,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
