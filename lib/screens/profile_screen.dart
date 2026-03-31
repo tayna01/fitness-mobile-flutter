@@ -1,5 +1,4 @@
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
-import 'package:fitness_mobile_flutter/widgets/card_profile_options_widget.dart';
 import 'package:fitness_mobile_flutter/widgets/card_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,7 +12,6 @@ class ProfileScreen extends StatelessWidget {
       backgroundColor: AppColors.background,
       appBar: AppBar(
         backgroundColor: AppColors.background,
-        elevation: 0,
         leading: IconButton(
           icon: const Icon(
             Icons.arrow_back_ios,
@@ -81,15 +79,6 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 40),
-
-            cardProfileOptionsWidget(Icons.history, 'Histórico de Treinos'),
-            cardProfileOptionsWidget(
-              Icons.notifications_outlined,
-              'Notificações',
-            ),
-            cardProfileOptionsWidget(Icons.shield_outlined, 'Privacidade'),
-
-            const SizedBox(height: 30),
 
             SizedBox(
               width: double.infinity,

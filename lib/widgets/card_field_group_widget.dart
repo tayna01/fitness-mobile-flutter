@@ -18,9 +18,11 @@ Widget buildFieldGroup({
           fontWeight: FontWeight.bold,
         ),
       ),
+
       const SizedBox(height: 8),
+
       TextField(
-        obscureText: isPassword,
+        obscureText: false,
         style: const TextStyle(color: AppColors.textPrimary),
         decoration: InputDecoration(
           hintText: hint,

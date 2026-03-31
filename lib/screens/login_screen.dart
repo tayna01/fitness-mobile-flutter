@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 80.0),
+          padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 80.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -23,7 +23,6 @@ class LoginScreen extends StatelessWidget {
                   color: AppColors.textPrimary,
                   fontSize: 60,
                   fontWeight: FontWeight.w900,
-                  height: 0.9,
                 ),
               ),
               Text(
@@ -134,7 +133,7 @@ class LoginScreen extends StatelessWidget {
                 height: 55,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.dashboard);
+                    Navigator.pushNamed(context, AppRoutes.home);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primary,

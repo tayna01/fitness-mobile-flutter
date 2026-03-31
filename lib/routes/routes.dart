@@ -4,4 +4,5 @@ class AppRoutes {
   static const dashboard = '/dashboard';
   static const profile = '/perfil';
   static const forgotPassword = '/recuperar-senha';
+  static const home = '/home';
 }
