@@ -6,6 +6,9 @@ Widget buildFieldGroup({
   required String label,
   required String hint,
   bool isPassword = false,
+  TextEditingController? controller,
+  String? errorText,
+  void Function(String)? onChanged,
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +25,9 @@ Widget buildFieldGroup({
       const SizedBox(height: 8),
 
       TextField(
-        obscureText: false,
+        controller: controller,
+        onChanged: onChanged,
+        obscureText: isPassword,
         style: const TextStyle(color: AppColors.textPrimary),
         decoration: InputDecoration(
           hintText: hint,
@@ -38,10 +43,33 @@ Widget buildFieldGroup({
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide.none,
+            borderSide: errorText != null
+                ? const BorderSide(color: Colors.red)
+                : BorderSide.none,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: errorText != null
+                ? const BorderSide(color: Colors.red)
+                : BorderSide.none,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: errorText != null
+                ? const BorderSide(color: Colors.red)
+                : const BorderSide(color: AppColors.primary),
           ),
         ),
       ),
+
+      if (errorText != null)
+        Padding(
+          padding: const EdgeInsets.only(top: 5, left: 2),
+          child: Text(
+            errorText,
+            style: const TextStyle(color: Colors.red, fontSize: 12),
+          ),
+        ),
     ],
   );
 }

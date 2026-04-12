@@ -7,6 +7,9 @@ class AppColors {
   static const Color primary = Color(0xFFD7FF5D);
   static const Color secondary = Color(0xFF333333);
 
-  static const Color textPrimary = Colors.white;
-  static const Color textSecondary = Colors.white24;
+  static const Color textPrimary = Color(0xFFFFFFFF);
+  static const Color textSecondary = Color(0x3FFFFFFF);
+
+  static const Color snackbarSuccess = Color(0x3C00FF08);
+  static const Color snackbarError = Color(0x3BFF0000);
 }

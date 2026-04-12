@@ -26,7 +26,7 @@ class LoginScreenState extends State<LoginScreen> {
     },
   ];
 
-  void validateAndLogin() {
+  void validateAndLogin() async {
     final userIn = userController.text.trim();
     final passIn = passwordController.text.trim();
 
@@ -34,14 +34,6 @@ class LoginScreenState extends State<LoginScreen> {
       userError = null;
       passwordError = null;
     });
-
-    if (userIn.isEmpty && passIn.isEmpty) {
-      setState(() {
-        userError = "O e-mail ou usuário é obrigatório";
-        passwordError = "A senha é obrigatória";
-      });
-      return;
-    }
 
     if (userIn.isEmpty) {
       setState(() => userError = "O e-mail ou usuário é obrigatório");
@@ -71,6 +63,18 @@ class LoginScreenState extends State<LoginScreen> {
       setState(() => passwordError = "Senha incorreta");
       return;
     }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Login realizado com sucesso!'),
+        backgroundColor: AppColors.snackbarSuccess,
+        duration: Duration(seconds: 2),
+      ),
+    );
+
+    await Future.delayed(const Duration(seconds: 2));
+
+    if (!mounted) return;
 
     Navigator.pushNamed(context, AppRoutes.home);
   }
