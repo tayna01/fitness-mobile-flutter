@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
 
-class WorkoutsScreen extends StatelessWidget {
+class WorkoutsScreen extends StatefulWidget {
   const WorkoutsScreen({super.key});
 
-  static const workouts = [
+  @override
+  State<WorkoutsScreen> createState() => WorkoutsScreenState();
+}
+
+class WorkoutsScreenState extends State<WorkoutsScreen> {
+  final List<Map<String, Object>> workouts = [
     {
       'day': 'SEG',
       'name': 'PEITO + TRÍCEPS',
@@ -32,12 +37,29 @@ class WorkoutsScreen extends StatelessWidget {
     {'day': 'DOM', 'name': 'DESCANSO', 'duration': '', 'done': false},
   ];
 
+  void abrirAddWorkout() async {
+    final novoTreino = await Navigator.pushNamed(context, AppRoutes.addWorkout);
+
+    if (novoTreino != null) {
+      setState(() => workouts.add(Map<String, Object>.from(novoTreino as Map)));
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Treino adicionado com sucesso!'),
+          backgroundColor: AppColors.snackbarSuccess,
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, AppRoutes.addWorkout),
+        onPressed: abrirAddWorkout,
         backgroundColor: AppColors.primary,
         child: const Icon(Icons.add, color: Colors.black),
       ),

@@ -42,14 +42,12 @@ class AddWorkoutScreenState extends State<AddWorkoutScreen> {
         nomeError == null && duracaoError == null && diaError == null;
 
     if (tudoValido) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Treino adicionado com sucesso!'),
-          backgroundColor: AppColors.snackbarSuccess,
-          duration: Duration(seconds: 2),
-        ),
-      );
-      Navigator.pop(context);
+      Navigator.pop(context, {
+        'day': diaSelecionado,
+        'name': nomeController.text.trim().toUpperCase(),
+        'duration': duracaoController.text.trim(),
+        'done': false,
+      });
     }
   }
 
