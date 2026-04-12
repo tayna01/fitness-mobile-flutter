@@ -52,14 +52,13 @@ class EditProfileScreenState extends State<EditProfileScreen> {
         idadeError == null;
 
     if (tudoValido) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Perfil atualizado com sucesso!'),
-          backgroundColor: AppColors.snackbarSuccess,
-          duration: Duration(seconds: 2),
-        ),
-      );
-      Navigator.pop(context);
+      Navigator.pop(context, {
+        'nome': nome,
+        'username': usernameController.text.trim(),
+        'peso': '${peso}kg',
+        'altura': '${altura}m',
+        'idade': idade,
+      });
     }
   }
 

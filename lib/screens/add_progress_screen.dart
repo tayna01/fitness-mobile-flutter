@@ -46,14 +46,7 @@ class AddProgressScreenState extends State<AddProgressScreen> {
     final tudoValido = exercicioError == null && pesoError == null;
 
     if (tudoValido) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Recorde adicionado com sucesso!'),
-          backgroundColor: AppColors.snackbarSuccess,
-          duration: Duration(seconds: 2),
-        ),
-      );
-      Navigator.pop(context);
+      Navigator.pop(context, {'exercise': exercicio, 'value': '${peso}kg'});
     }
   }
 
