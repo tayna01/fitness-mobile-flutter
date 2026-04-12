@@ -1,3 +1,4 @@
+import 'package:fitness_mobile_flutter/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
@@ -16,6 +17,11 @@ class ProgressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, AppRoutes.addProgress),
+        backgroundColor: AppColors.primary,
+        child: const Icon(Icons.add, color: Colors.black),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),

@@ -1,4 +1,5 @@
 import 'package:fitness_mobile_flutter/core/utils/app_colors.dart';
+import 'package:fitness_mobile_flutter/routes/routes.dart';
 import 'package:fitness_mobile_flutter/widgets/card_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,6 +30,17 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.edit_outlined,
+              color: AppColors.primary,
+              size: 20,
+            ),
+            onPressed: () =>
+                Navigator.pushNamed(context, AppRoutes.editProfile),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),

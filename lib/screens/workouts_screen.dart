@@ -1,3 +1,4 @@
+import 'package:fitness_mobile_flutter/routes/routes.dart';
 import 'package:fitness_mobile_flutter/widgets/workout_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,6 +36,11 @@ class WorkoutsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, AppRoutes.addWorkout),
+        backgroundColor: AppColors.primary,
+        child: const Icon(Icons.add, color: Colors.black),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),

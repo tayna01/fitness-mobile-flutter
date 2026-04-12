@@ -13,9 +13,9 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
+  int selectedIndex = 0;
 
-  final List<Widget> _screens = const [
+  final List<Widget> screens = const [
     HomeScreen(),
     WorkoutsScreen(),
     ProgressScreen(),
@@ -25,10 +25,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: _selectedIndex, children: _screens),
+      body: IndexedStack(index: selectedIndex, children: screens),
       bottomNavigationBar: BottomNavigation(
-        selectedIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
+        selectedIndex: selectedIndex,
+        onTap: (index) => setState(() => selectedIndex = index),
       ),
     );
   }

@@ -5,4 +5,7 @@ class AppRoutes {
   static const profile = '/perfil';
   static const forgotPassword = '/recuperar-senha';
   static const home = '/home';
+  static const addWorkout = '/adicionar-treino';
+  static const editProfile = '/editar-perfil';
+  static const addProgress = '/editar-progresso';
 }
